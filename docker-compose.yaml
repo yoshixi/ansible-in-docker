@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  ansible:
+    build: .
+    volumes:
+      - ./:/home
+      - ~/.ssh/:/root/.ssh/
+  ansible-playbook:
+    build: .
+    entrypoint:
+      - ansible-playbook
+    volumes:
+      - ./:/home
+      - ~/.ssh/:/root/.ssh/
+
